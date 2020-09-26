@@ -32,7 +32,14 @@ class TodoContainer extends React.Component {
         //console.log("clicked ", changedTodo);
         this.setState({
             todos: updateTodos(changedTodo, this.state.todos)
-        })
+        });
+    }
+
+    handleDelete = (deletedTodo) => {
+        console.log("deleted", deletedTodo);
+        this.setState({
+            todos: deleteTodo(deletedTodo, this.state.todos)
+        });
     }
 
     render() {
@@ -43,6 +50,7 @@ class TodoContainer extends React.Component {
                 <TodoList 
                     todos={this.state.todos} 
                     handleChange={this.handleChange}
+                    handleDelete={this.handleDelete}
                 />
             </div>
         );
@@ -59,4 +67,8 @@ function updateTodos(changedTodo, todos) {
         
         return todo;
     });
+}
+
+function deleteTodo(deletedTodo, todos) {
+    return todos.filter(todo => todo.id !== deletedTodo.id);
 }

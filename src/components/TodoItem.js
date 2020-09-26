@@ -8,8 +8,8 @@ function TodoItem(props) {
                 checked={props.todo.completed} />
 
             {props.todo.title}
-            
-            <button>Delete</button>
+
+            <button onClick={() => props.handleDelete(props.todo)}>Delete</button>
         </li>
     );
 }

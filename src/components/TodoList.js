@@ -8,6 +8,7 @@ function TodoList(props) {
                 <TodoItem 
                     key={item.id} 
                     handleChange={props.handleChange}
+                    handleDelete={props.handleDelete}
                     todo={item} />
             ))}
         </ul>
