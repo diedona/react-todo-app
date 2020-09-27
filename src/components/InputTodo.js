@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+const descriptionStyle = {
+    marginTop: "10px",
+    marginRight: "15px"
+}
+
 class InputTodo extends Component {
 
     constructor(props) {
@@ -33,7 +38,7 @@ class InputTodo extends Component {
         return (
             <div>
                 <form onSubmit={(e) => this.onSubmit(e)} className="form-container">
-                    <label>Description: </label>
+                    <label style={descriptionStyle}>Description: </label>
                     <input type="text"
                         className="input-text"
                         value={this.state.title}
