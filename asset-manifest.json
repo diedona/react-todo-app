@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/diedona/react-todo-app.git/static/css/main.f1580b57.chunk.css",
+    "main.js": "/diedona/react-todo-app.git/static/js/main.68d93505.chunk.js",
+    "main.js.map": "/diedona/react-todo-app.git/static/js/main.68d93505.chunk.js.map",
+    "runtime-main.js": "/diedona/react-todo-app.git/static/js/runtime-main.70240b1f.js",
+    "runtime-main.js.map": "/diedona/react-todo-app.git/static/js/runtime-main.70240b1f.js.map",
+    "static/js/2.8e41f98d.chunk.js": "/diedona/react-todo-app.git/static/js/2.8e41f98d.chunk.js",
+    "static/js/2.8e41f98d.chunk.js.map": "/diedona/react-todo-app.git/static/js/2.8e41f98d.chunk.js.map",
+    "index.html": "/diedona/react-todo-app.git/index.html",
+    "precache-manifest.02befee105f5d7b986c1266dc12b3073.js": "/diedona/react-todo-app.git/precache-manifest.02befee105f5d7b986c1266dc12b3073.js",
+    "service-worker.js": "/diedona/react-todo-app.git/service-worker.js",
+    "static/css/main.f1580b57.chunk.css.map": "/diedona/react-todo-app.git/static/css/main.f1580b57.chunk.css.map",
+    "static/js/2.8e41f98d.chunk.js.LICENSE.txt": "/diedona/react-todo-app.git/static/js/2.8e41f98d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.70240b1f.js",
+    "static/js/2.8e41f98d.chunk.js",
+    "static/css/main.f1580b57.chunk.css",
+    "static/js/main.68d93505.chunk.js"
+  ]
+}
