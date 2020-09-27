@@ -3,50 +3,47 @@ import { v4 as uuidv4 } from "uuid";
 import TodoList from './TodoList';
 import Header from './Header';
 import InputTodo from './InputTodo';
+import Axios from 'axios';
 
 class TodoContainer extends React.Component {
 
     constructor(props) {
         super();
         this.state = {
-            todos: [
-                {
-                    id: uuidv4(),
-                    title: "Setup development environment",
-                    completed: true
-                },
-                {
-                    id: uuidv4(),
-                    title: "Develop website and add content",
-                    completed: false
-                },
-                {
-                    id: uuidv4(),
-                    title: "Deploy to live server",
-                    completed: false
-                }
-            ]
+            todos: [],
         }
     }
 
     handleChange = (changedTodo) => {
-        //console.log("clicked ", changedTodo);
         this.setState({
             todos: updateTodos(changedTodo, this.state.todos)
         });
     }
 
     handleDelete = (deletedTodo) => {
-        //console.log("deleted", deletedTodo);
         this.setState({
             todos: deleteTodo(deletedTodo, this.state.todos)
         });
     }
 
-    addTodo(title) {
-        const id = uuidv4();
+    async addTodo(title) {
+        const newTodo = { title: title, completed: false };
+        const { data } = await Axios.post("https://jsonplaceholder.typicode.com/todos", newTodo);
+        data.id = uuidv4();
         this.setState({
-            todos: [...this.state.todos, { id: id, title: title, completed: false}]
+            todos: [...this.state.todos, data]
+        });
+    }
+
+    async componentDidMount() {
+        //const { data } = await Axios.get("https://jsonplaceholder.typicode.com/todos?_limit=10");
+        const { data } = await Axios.get("https://jsonplaceholder.typicode.com/todos", {
+            params: {
+                _limit: 10
+            }
+        });
+        this.setState({
+            todos: data
         });
     }
 
@@ -55,8 +52,8 @@ class TodoContainer extends React.Component {
             <div className="container">
                 <Header />
                 <InputTodo addTodo={(title) => this.addTodo(title)} />
-                <TodoList 
-                    todos={this.state.todos} 
+                <TodoList
+                    todos={this.state.todos}
                     handleChange={this.handleChange}
                     handleDelete={this.handleDelete}
                 />
@@ -70,9 +67,9 @@ export default TodoContainer;
 
 function updateTodos(changedTodo, todos) {
     return todos.map(todo => {
-        if(todo.id === changedTodo.id)
+        if (todo.id === changedTodo.id)
             todo.completed = !changedTodo.completed;
-        
+
         return todo;
     });
 }
