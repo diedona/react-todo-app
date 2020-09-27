@@ -18,7 +18,7 @@ class InputTodo extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        if(!this.state.title) {
+        if (!this.state.title) {
             alert('Preencha o título desgraça');
             return;
         }
@@ -32,14 +32,18 @@ class InputTodo extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={(e) => this.onSubmit(e)}>
+                <form onSubmit={(e) => this.onSubmit(e)} className="form-container">
                     <label>Description: </label>
                     <input type="text"
+                        className="input-text"
                         value={this.state.title}
                         onChange={(e) => this.onChange(e)}
                         name="title"
                         placeholder="Describe the to-do" />
-                    <button type="submit">Add</button>
+                    <button className="input-submit"
+                        type="submit">
+                        Add
+                    </button>
                 </form>
             </div>
         )

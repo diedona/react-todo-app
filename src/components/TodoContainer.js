@@ -52,7 +52,7 @@ class TodoContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Header />
                 <InputTodo addTodo={(title) => this.addTodo(title)} />
                 <TodoList 
